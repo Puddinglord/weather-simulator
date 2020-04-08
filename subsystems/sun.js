@@ -6,22 +6,33 @@
  *
  * @class Sun
  */
-export default class Sun {
+class Sun {
   constructor() {
-    
+    this.randomNumber = require('../helpers/randomNumber');
+
+    this.minSunThreshold = 50; // If we are equal to or greater than this number then the sun is out
   }
 
   /**
-   * When we want to grab a new "Sun" we need to know if it's visible or not.
+   * Let's us know if the sun is currently out or hiding. This will directly
+   * impact the rest of the weather so we need to know this up front.
    *
+   * @returns {Boolean} If the sun is out or not.
    * @memberof Sun
    */
-  start() {
-
-  }
-
   isTheSunOut() {
-    
+    // Let's see if the sun is out
+    if (this.randomNumber(100) >= this.minSunThreshold) {
+      //The sun is out!
+      return true;
+    }
+    else {
+      // The sun is hiding
+      return false;
+    }
+
   }
 
 }
+
+module.exports = new Sun();

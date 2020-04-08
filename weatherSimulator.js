@@ -7,14 +7,22 @@
  *
  * This class also provides pass-through functions that are used to extend functionality
  * while keeping the code base clean and tidy.
+ * 
+ * This will return a json object that will contain all the weather for the day.
  *
  * @class WeatherSimulator
  */
 class WeatherSimulator {
   constructor() {
+    this.sun = require('./subsystems/sun');
 
     this.start();
   }
+
+  getTodaysWeather() {
+
+  }
+
 
   /**
    * Pass along all the needed information to all subclasses so they
@@ -24,6 +32,8 @@ class WeatherSimulator {
    */
   start () {
     console.log('Weather Simulator has been started!');
+
+    this.sun.getCurrentSun();
   }
 }
 
